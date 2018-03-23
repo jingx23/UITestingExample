@@ -14,24 +14,21 @@ class SnapshotTests: FBSnapshotTestCase {
     
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
+        self.recordMode = false //This creates the reference images on disk, remove the line enabling record mode and run the test
+        self.isDeviceAgnostic = true //To allow appending the device model (iPhone, iPad, iPod Touch, etc), OS version and screen size to the images (allowing to have multiple tests for the same «snapshot» for different OSs and devices)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testViewControllerWithStoryboard() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let sut = storyboard.instantiateViewController(withIdentifier: "FirstViewController")
+        FBSnapshotVerifyView(sut.view)
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+    func testViewControllerWithoutStoryboard() {
+        let vc = ViewControllerWithoutStoryboard()
+        FBSnapshotVerifyView(vc.view)
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+
     
 }
