@@ -6,9 +6,11 @@
 //
 
 import XCTest
+import FBSnapshotTestCase
+
 @testable import UITestingExample
 
-class SnapshotTests: XCTestCase {
+class SnapshotTests: FBSnapshotTestCase {
     
     override func setUp() {
         super.setUp()
