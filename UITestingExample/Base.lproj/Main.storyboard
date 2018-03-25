@@ -24,6 +24,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jre-BV-HMh">
+                                <rect key="frame" x="146" y="385" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next View"/>
+                                <connections>
+                                    <action selector="touchNextView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j1h-g1-FeX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -33,10 +41,57 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <segue destination="A9j-aR-b94" kind="show" identifier="showInputViewController" id="8p4-LF-aOP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="37.600000000000001" y="33.733133433283363"/>
+        </scene>
+        <!--Input View Controller-->
+        <scene sceneID="hJk-QP-OIB">
+            <objects>
+                <viewController storyboardIdentifier="InputViewController" id="A9j-aR-b94" customClass="InputViewController" customModule="UITestingExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xk6-dd-QYg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Text to validate" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="niY-Pe-h9i">
+                                <rect key="frame" x="65" y="60" width="269" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xxx-bz-0Yv">
+                                <rect key="frame" x="65" y="98" width="269" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Md1-fd-P9f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="niY-Pe-h9i" firstAttribute="leading" secondItem="5yy-nE-mvj" secondAttribute="leading" constant="65" id="1BV-87-wZ1"/>
+                            <constraint firstItem="niY-Pe-h9i" firstAttribute="leading" secondItem="Xxx-bz-0Yv" secondAttribute="leading" id="4ZV-e6-c3W"/>
+                            <constraint firstItem="5yy-nE-mvj" firstAttribute="trailing" secondItem="niY-Pe-h9i" secondAttribute="trailing" constant="41" id="91r-3o-eHh"/>
+                            <constraint firstItem="niY-Pe-h9i" firstAttribute="trailing" secondItem="Xxx-bz-0Yv" secondAttribute="trailing" id="LF1-3n-fUj"/>
+                            <constraint firstItem="Xxx-bz-0Yv" firstAttribute="top" secondItem="niY-Pe-h9i" secondAttribute="bottom" constant="8" symbolic="YES" id="M2e-GN-wPi"/>
+                            <constraint firstItem="niY-Pe-h9i" firstAttribute="top" secondItem="5yy-nE-mvj" secondAttribute="top" constant="40" id="epc-ao-o1m"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5yy-nE-mvj"/>
+                    </view>
+                    <connections>
+                        <outlet property="inputTextField" destination="niY-Pe-h9i" id="m2f-33-18d"/>
+                        <outlet property="textLabel" destination="Xxx-bz-0Yv" id="OJe-EL-NpS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8BV-Hz-Nxf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1167" y="34"/>
         </scene>
     </scenes>
 </document>
